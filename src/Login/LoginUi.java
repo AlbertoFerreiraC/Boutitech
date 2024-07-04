@@ -111,7 +111,7 @@ public class LoginUi extends javax.swing.JFrame {
                 if (control_acceso_pass() == true) {
                     if (control_acceso_usu() == true) {
                         ResultSet rs_usu = conectar.listar("username, pass, idusuario", "usuario",
-                                "where username = '" + jtUsuario.getText() + "'");
+                                "where username = '" + jtUsuario.getText() + "' and pass = '" + jtPass.getText() + "'");
                         if (rs_usu.next() == true) {
                             id_usuario_se = rs_usu.getString(3);
                             usuario_se = jtUsuario.getText();
@@ -308,7 +308,7 @@ public class LoginUi extends javax.swing.JFrame {
     }
 
     public void Limpiar() {
-        //jtUsuario.setText("");
+        jtUsuario.setText("");
         jtPass.setText("");
     }
 
